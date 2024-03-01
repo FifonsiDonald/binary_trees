@@ -27,20 +27,18 @@ size_t binary_tree_height(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-    int height, depth = 0;
+	int height, depth = 0;
 
-    if (tree == NULL)
-        return 0;
+	if (tree == NULL)
+		return 0;
 
-    height = binary_tree_height(tree);
+	height = binary_tree_height(tree);
 
-    /* Calculate depth of leftmost leaf node */
-    while (tree != NULL)
-    {
-        depth++;
-        tree = tree->left;
-    }
+	while (tree != NULL)
+	{
+		depth++;
+		tree = tree->left;
+	}
 
-    /* Check if all leaf nodes are at the same depth and if the tree is full */
-    return (1 << height) - 1 == (1 << depth) - 1;
+	return (1 << height) - 1 == (1 << depth) - 1;
 }
